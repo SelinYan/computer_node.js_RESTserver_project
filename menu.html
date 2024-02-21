@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Computer Management Menu</h1>
+    <button onclick="getAllFromStorage()">Get All Computers</button>
+    <button onclick="getFromStorage()">Get Computer By ID</button>
+    <button onclick="addToStorage()">Add New Computer</button>
+    <button onclick="updateStorage()">Update Computer</button>
+    <button onclick="removeFromStorage()">Delete Computer</button>
+
+    <div id="output"></div>
+
+    <script>
+      async function getAllComputers() {
+        const response = await fetch("http://localhost:4000/api/computers");
+        const data = await response.json();
+        document.getElementById("output").innerText = JSON.stringify(
+          data,
+          null,
+          4
+        );
+      }
+
+      // Define other functions for getComputerById, addComputer, updateComputer, deleteComputer...
+    </script>
+  </body>
+</html>
