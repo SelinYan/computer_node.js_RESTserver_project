@@ -6,7 +6,7 @@ const cors = require("cors");
 const express = require("express");
 const app = express();
 
-const { port, host, storageEngine } = require("./config.json");
+const { port, host, storageEngine, storage } = require("./config.json");
 
 const storageEnginePath = path.join(__dirname, storageEngine.folder);
 

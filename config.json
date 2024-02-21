@@ -4,5 +4,9 @@
     "storageEngine":{
         "folder":"jsonStorageEngine",
         "dataStorageFile":"dataStorageLayer.js"
+    },
+    "storage":{
+        "folder":"computerRegister",
+        "storageConfigFile":"storageConfig.json"
     }
 }
