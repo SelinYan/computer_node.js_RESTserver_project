@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-function adapt(item){
-    return Object.assign(item,{
-        id:+item.id,
-        salary:+item.salary
-    });
+function adapt(item) {
+  return Object.assign(item, {
+    id: +item.id,
+    price: +item.price,
+  });
 }
 
-module.exports = {adapt}
+module.exports = { adapt };

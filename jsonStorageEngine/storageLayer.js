@@ -81,5 +81,4 @@ function createStorageLayer(storageFolder, storageConfigFile) {
     resource,
   };
 } //end of createStorageLayer
-
 module.exports = { createStorageLayer };

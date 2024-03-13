@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/basicstyles.css" />
+    <script src="/jsonStorageEngine/storageLayer.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -16,17 +18,54 @@
     <div id="output"></div>
 
     <script>
-      async function getAllComputers() {
-        const response = await fetch("http://localhost:4000/api/computers");
-        const data = await response.json();
-        document.getElementById("output").innerText = JSON.stringify(
-          data,
-          null,
-          4
-        );
+      async function getAllFromStorage() {
+        const response = await fetch("http://localhost:4000/rest/computers");
+        const computers = await response.json();
+        const resultset = document.getElementById("output");
+        for (const computer of computers) {
+          const tr = document.createElement("tr");
+          tr.appendChild(createCell(computer.id));
+          tr.appendChild(createCell(computer.name));
+          tr.appendChild(createCell(computer.type));
+          tr.appendChild(createCell(computer.processor));
+          tr.appendChild(createCell(computer.price));
+          resultset.appendChild(tr);
+        }
+        // document.getElementById("output").innerText = JSON.stringify(
+        //   data,
+        //   null,
+        //   4
+        // );
       }
 
-      // Define other functions for getComputerById, addComputer, updateComputer, deleteComputer...
-    </script>
+      function createCell(data) {
+        const td = document.createElement("td");
+        td.textContent = data;
+        return td;
+      }
+
+      // Define other functions for getComputerById, addComputer, updateComputer, deleteComputer... -->
+<!-- </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles/basicstyles.css" />
+    <title>Menu</title>
+  </head>
+  <body>
+    <main>
+      <h1>Menu</h1>
+      <a href="/pages/getAll.html"><button>Get all employees</button></a>
+      <a href="/pages/search.html"><button>Search person</button></a>
+      <a href="/pages/insert.html"><button>Add new Person</button></a>
+      <a href="/pages/remove.html"><button>Remove Person data</button></a>
+      <a href="/pages/update.html"><button>Update person data</button></a>
+    </main>
   </body>
 </html>
