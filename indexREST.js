@@ -25,12 +25,9 @@ const RESOURCE = dataStorage.RESOURCE;
 
 app.use(cors());
 app.use(express.json());
-// app.use(express.static(path.join(__dirname, "public")));
+
 app.get("/", (req, res) => res.sendFile(__dirname + "/restTester.html"));
-// app.get("/", (req, res) => res.sendFile(__dirname + "/menu.html"));
-
 app.get("/rest", (req, res) => res.json(RESOURCE));
-
 app.get(`/rest/${RESOURCE}/keys`, (req, res) =>
   dataStorage.KEYS.then((result) => res.json(result))
 );
